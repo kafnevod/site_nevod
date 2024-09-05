@@ -1,0 +1,218 @@
+
+<HTML>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+    }
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>$dirname="webly";
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>$draftfile=$dirname . '/' . 'draft';
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>unset($on);unset ($off);
+unset ($files);
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>if (!$wnom)
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    {
+    $Year=strftime("%Y",time());
+    $draftfile="$dirname/$Year/draft";
+    if ($draft && file_exists($draftfile))
+	{
+	$on="<FONT COLOR='#00FF00'>";
+	$off="</FONT>";
+	$wnom=$draftfile;
+	}
+    else
+	{
+	$files=Array();
+	for (;count($files)==0 && $Year>2000;$Year--) {
+	    $dirname="webly";
+	    $ydirname="$dirname/$Year";
+	    while (!is_dir($ydirname) && $Year>2000) {
+		$Year--;
+		$ydirname="$dirname/$Year";
+//echo "year=$Year DIR=$ydirname<br>\n";
+	    }
+	    $ydirname="$dirname/$Year";
+	    $dirname=$ydirname;
+	    $dir=dir($dirname);
+	    while ($file=$dir->read()) {
+		$name=$dirname . '/' . $file;
+		if (substr($file,0,4) == 'web_' && substr($file,-2)!='.b')
+		    $files[] = $name;
+	    }
+//        echo "YEAR=$Year ";print_r($files);
+	}
+	    rsort($files);   //отсортировать по времени создания
+	//    echo "List=" . implode('<BR>',$files);
+	    $wnom=$files[0];
+	}
+    }
+else
+    {
+    $path=explode('/',$wnom);
+    if (count($path) == 3)
+	$Year=$path[1];
+//echo "YEAR=$Year<BR>";
+    }
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>if (!$draft && $full)
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    {
+    $wtime=filemtime($wnom);
+    $Wnom=basename($wnom);  //имя без директория
+//    echo "htmlfile=$htmlfile<BR>";
+    $htmldir="weblyhtml/$Year";
+    if (!is_dir($htmldir)) mkdir ($htmldir,0755);
+    $htmlfile="$htmldir/$Wnom.html";
+    if (file_exists($htmlfile) && filemtime($wnom) <= filemtime($htmlfile))
+	{
+	$htmlfile="http://www.nevod.ru/news/$htmlfile";
+	header ("Location: $htmlfile");
+	return;
+	}
+    }
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>$fd = fopen( $wnom, "r" );
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>if( !$fd )
+{
+ echo "Номер $wnom не существует";
+ exit(1);
+}
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>$b=0;
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>if ($full)
+    {
+    $w='WIDTH=480';
+    $b=1;
+    $br="<BR>";
+    }
+else
+    $w='WIDTH=90%';
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>$ret.="<TABLE CLASS='inews' ALIGN='center' ".
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>$w .
+'><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">';
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>$sost='t'; //title
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>while( $str=fgets( $fd, 256 ) )
+{
+ if (!$full && strstr($str,'<P>')) break;
+ switch( $sost )
+ {
+  case 't';
+$title=$str;
+$ret.="
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'>$on$br$str$br$br$off</FONT></B></CENTER></DIV>";
+  $sost = 'c'; //content
+$ret.="<DIV CLASS='inewsbody'>";
+  break;
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>  case 'c';
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>  if( !trim($str)  )
+  {
+$ret.="</DIV>";
+   $sost = 't'; // end content
+  }
+  else
+  {
+   $ret.= $str;
+  }
+  break;
+ }
+}
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>if (!$full)
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    {
+    $ret.= "<A HREF='Inews_read.php?wnom=$wnom&full=y'> см.далее ...</A>";
+    $ret.='<P ALIGN=right><A HREF="web_arch.php">Уже проехались</A></P>';
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>    }
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>else
+    $ret.="<BR>
+С уважением, <BR>А.Б.В. Иванов
+";
+$ret.="</DIV>
+    </TD>
+</TR>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR></TABLE>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>";
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>if ($full)
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    $ret="
+<HTML>
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+$title
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR>" . $ret;
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>//echo "$ret";
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>if ($htmlfile && $full && !$draft)
+    {
+    $fp=fopen($htmlfile,"w");
+    fwrite($fp,$ret);
+    fclose($fp);
+    if ($wtime)
+	touch($htmlfile,$wtime);
+    header("Location: $htmlfile");
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>    }
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>else
+    {
+    @unlink ($htmlfile);
+    echo "$ret";
+    }
+<BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>

@@ -1,0 +1,78 @@
+
+<HTML>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+#Копирование webcam
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR># /etc/crontab: system-wide crontab
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'># Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file.
+# This file also has a username field, that none of the other crontabs do.
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>SHELL=/bin/sh
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR># m h dom mon dow user	command
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>17 *	* * *	root    run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || run-parts --report /etc/cron.daily
+47 6	* * 7	root	test -x /usr/sbin/anacron || run-parts --report /etc/cron.weekly
+52 6	1 * *	root	test -x /usr/sbin/anacron || run-parts --report /etc/cron.monthly
+#
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>*/5 *	 * * *	 root	 netdate 195.222.150.129 >/dev/null
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>0 */1    * * *   root    /usr/sbin/apache2ctl restart
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>#5 0 * * * root      /home/www-data/tv-program/new-tv
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>0 0 * * * root     /var/log/apache/move_logs.sh
+30 0 * * * root /home/www-data/statistics/update-stat
+0 * * * * root	   /home/www-data/bin/getweather
+0 */5 * * * root     /home/www-data/currency/getcurrency
+0  */1 * * * root     nice -40 /home/www-data/news/newfiles
+#37  * * * * www-data	  /home/www-data/rogaine/tools/dumpstate
+#30  0 * * * root     /www-data/copy
+1 0 * * * root	   (cd /home/www-data/webspace/local/sunrise/; ./sunrise.php)
+#1 0 * * * root     (cd /home/www-data/www.lukoil-perm.ru; ./rmuser.php)
+#22 * * * * root /usr/bin/killall Xvfb >/tmp/pcard_
+*/5 *	 * * *	 root	 /bin/testdns
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>#30 */1 * * * root /home/www-data/rogaine/tools/dumpstate 2>/dev/null
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>0 12 10 10 * root cd /home/www-data/webspace/local/webcam/images/record; cp -r 09 ~kaf/dedukin; cp -r 10 ~kaf/dedukin; cp -r 11 ~kaf/dedukin;
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>#Копирование webcam
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>#0 16 11 6 * www-data /bin/webcamcopy
+#0 15 12 * www-data /bin/webcamcopy
+#0 15 13 * www-data /bin/webcamcopy
+</DIV><BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>

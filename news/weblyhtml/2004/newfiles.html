@@ -1,0 +1,74 @@
+
+<HTML>
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+php4 -q $Dir/New.php </dev/null 2>/tmp/Newtrace
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>#!/bin/sh
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>Dir=/home/www-data/news
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>AfterFile=$Dir/after
+SkipFiles=$Dir/skip
+TMPFile=$Dir/last.tmp
+ListFile=$Dir/lastfiles
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>set --	`date "+%Y %m"	 --date '1 month ago'`
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>prevyear=$1 prevmonth=$2
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>set --	`date "+%Y %m"`
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>year=$1 month=$2
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>set -x
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>exec 2>/tmp/newfiles
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>set -f
+date=`date +%Y%m%d%H%M   --date '1 month ago'`
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>touch -t $date $AfterFile
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>(
+cd ~www-data
+find ./local/zvezda/pril/zvezda/ -newer $AfterFile -a -type d 2>/dev/null
+#find ./local/zvezda/pril//zvezda/$prevyear/$prevmonth -newer $AfterFile -a -name '*.xml' 2>/dev/null
+find . -newer $AfterFile 2>/dev/null
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>) |
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>tee /tmp/lastfiles |
+grep -v -f $SkipFiles >$TMPFile
+mv $TMPFile $ListFile
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>php4 -q $Dir/New.php </dev/null 2>/tmp/Newtrace
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>exit
+<BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>

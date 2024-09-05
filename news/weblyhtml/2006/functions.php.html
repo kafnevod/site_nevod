@@ -1,0 +1,107 @@
+
+<HTML>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+function showimg() {
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>function NewsRefs() {
+?>
+<IMG SRC="images/news.gif " ALT="Новости"
+><BR
+><BR>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>  <TABLE  WIDTH="90%" CLASS="newsrefs" ALIGN="center"
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>  ><TR ALIGN="center"
+  ><TD NOWRAP="yes"
+  ><DIV CLASS="newsrefs"><DIV CLASS="newsrefshead"><FONT COLOR="#9c99cd"
+  ><B>РАЗНЫЕ НОВОСТИ:</B></FONT></DIV
+  ><A HREF="/local/">туземные</A><BR
+  ><A HREF="/local/m/">пермского рока</A><!--BR
+  ><A HREF="/linux/news/">Linux</A--><BR
+  ><A HREF="/local/zvezda/">газета "Звезда"</A><BR
+  ><!--A HREF="/local/d-02/">газета "Досье-02"</A><BR
+  --><A HREF="http://www.nevod.ru/new10.html">последняя десятка</A
+  ></DIV
+  ></TD
+  ></TR
+  ></TABLE>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>}
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>function Idea(){
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>?>
+<TABLE  WIDTH="90%" class="ideas" ALIGN='center'
+><TR ALIGN="center"
+><TD
+ ><IMG SRC="images/idea-n.gif" ALT="Отдельно взятая мысль"
+ ><BR
+ ><DIV CLASS='idea'>
+  <?php
+  include('idea.php');
+  ?>
+ </DIV
+  ><A HREF="idea.php?all=1">Мысли текущего года</A>
+</TD></TR
+></TABLE>
+<?php
+}
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>function showimg() {
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>$linkname='newsphoto';
+if (!file_exists($linkname) || !is_link($linkname)) return;
+$img=readlink($linkname);
+$dirname=trim(dirname($img));
+$reffilename='imgref';
+$href=false;
+if (file_exists($reffilename))
+    {
+    $fp=fopen($reffilename,'r');
+    $dirname=trim(fread($fp,filesize($reffilename)));
+    fclose($fp);
+    $href=true;
+    }
+//echo "DIR=$dirname<BR>";
+$nonref='dates';
+$len=strlen($nonref);
+if (!$href && substr($dirname,-$len)==$nonref):   //знаменательные даты
+?>
+<IMG SRC='<?php echo $img?>' ALT='' BORDER="1" CLASS="newsphoto">
+<?php
+else:
+?>
+<A HREF="<?php echo "$dirname"?>"><IMG SRC='<?php echo $img?>' ALT='' BORDER="1" CLASS="newsphoto"></A>
+<?php
+endif;
+}
+</DIV><BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>

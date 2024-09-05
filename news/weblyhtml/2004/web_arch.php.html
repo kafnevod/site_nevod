@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC -//W3C//DTD HTML 4.0 Transitional//EN>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+<HTML>
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+</CENTER>
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>if (!$Year)
+    $Year=strftime("%Y",time()); //текущий год
+?>
+<HTML>
+<HEAD>
+ <link REL="icon" HREF="../../../Images/nevod.ico" TYPE="image/ico">
+ <link REL="stylesheet" TYPE="text/css" HREF="web_arch.css">
+ <TITLE>Архив Пермского веб-обоза</TITLE>
+</HEAD>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><BODY BACKGROUND="../../../Images/net-bg.jpg">
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'><TABLE WIDTH='760' ALIGN='center' CLASS='design'>
+<TR>
+<TD valign=top><IMG SRC="images/news.gif " ALT="Новости">
+</TD>
+<TD ALIGN='right' CLASS='head'>
+ПЕРМСКИЙ ВЕБ-ОБОЗ<BR>
+Архив за <?php echo $Year?>-й год
+</TD>
+</TR>
+<TR>
+<TD COLSPAN='2' ALIGN=center>
+<TABLE CLASS='main' WIDTH='100%'>
+<?php
+ $newsdir = "webly/";
+ $years=Array();
+ for ($year=2000;true;$year++)
+    {
+    if (is_dir($newsdir.$year))
+	$years[$year]=1;
+    else break;
+    }
+ $newsdir .= "$Year/";
+ $newsfiles = array();
+ $handle = opendir( $newsdir );
+ $i = 0;
+ while ($file = readdir($handle))
+ {
+  $c_news1_file = $newsdir . $file;
+  if (substr($file,0,4)== 'web_' && substr($c_news1_file,-2)!='.b')
+  {
+   $newsfiles[$i] = $file;
+   $i++;
+  }
+ }
+ closedir($handle);
+ rsort( $newsfiles );
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR> for( $i = 0; $i < count( $newsfiles ); $i++ )
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'> {
+  if( $i % 3 == 0 ) printf("<TR>");
+  $c_news1_file = $newsdir . $newsfiles[$i];
+//echo "FILE: $c_news1_file<BR>";
+  if( is_file( $c_news1_file ) )
+  {
+   $inp = fopen( $c_news1_file, "r" );
+   if( ! $inp )
+   {
+    printf("Нет новости %s", $c_news_file);
+   }
+   else
+   {
+    $str = fgets( $inp, 1024 );
+      printf("<TD><A HREF=Inews_read.php?full=y&wnom=%s%s>%s</A></TD>",
+				 $newsdir,$newsfiles[$i], $str);
+    fclose( $inp );
+   }
+  }//if
+  if( $i % 3 == 2 ) printf("</TR>");
+ }//for
+?>
+</TABLE>
+</TD></TR>
+</TABLE>
+<CENTER>
+<?php
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>if (is_array($years))   //есть другие года?
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    {
+    krsort($years);
+    echo "<BR>";
+    while (list($year,$cnt)=each($years))
+	{
+	$hrefon='';$hrefoff='';
+	if ($year!=$Year)
+	    {
+	    $hrefon="<A HREF=web_arch.php?Year=$year>";
+	    $hrefoff="</A>";
+	    echo "${hrefon}Архив за $year-й год$hrefoff<BR>";
+	    }
+	else
+	    echo "<BR>";
+	}
+    }
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>?>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR></CENTER>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></BODY>
+</HTML>
+<BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC -//W3C//DTD HTML 4.0 Transitional//EN>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+<HTML>
+
+<HEAD>
+ <link REL='icon' HREF='../../../Images/nevod.ico' TYPE='image/ico'>
+ <link REL='stylesheet' TYPE='text/css' HREF='style.css'>
+<TITLE>
+</TABLE>
+
+</TITLE>
+</HEAD>
+<BODY BACKGROUND='../../../Images/net-bg.jpg'>
+<BR><TABLE CLASS='inews' ALIGN='center' WIDTH=480><TR>
+    <TD>
+<CENTER
+><IMG SRC="../../images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз"
+></CENTER>
+<DIV CLASS="inews">
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>$year=substr($wnom,0,4);
+$wnom = "weekly/$year/$wnom";
+$fd = fopen( $wnom, "r" );
+if( !$fd )
+{
+ echo "Номер $wnom не существует";
+ exit(1);
+}
+$wdate = fgets( $fd, 256 );
+?>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'><TABLE CELLSPACING=3 CELLPADDING=1 BORDER=0>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><TR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    <TD>
+    <BR> <BR>
+    </TD>
+    <TD>
+<CENTER>
+<FONT size=+1><B>Weekly-Quickly</B></FONT>
+<BR>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><I>( <?php echo $wdate; ?> )</I><BR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR></CENTER>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><BR>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    </TD>
+    <TD>
+    <BR> <BR>
+    </TD>
+</TR>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR><?php
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>$sost='t'; //title
+fgets( $fd, 256 );
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>while( $str=fgets( $fd, 256 ) )
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>{
+ switch( $sost )
+ {
+  case 't';
+?>
+<TR>
+    <TD BGCOLOR=#9A9ACC>
+    <BR> <BR>
+    </TD>
+    <TD><CENTER>
+    <BR><FONT COLOR=#9c99cd>
+<B><?php echo $str ?></B></FONT>
+<?php
+  $sost = 'c'; //content
+?>
+<BR><FONT SIZE=-1>
+<?php
+  break;
+  case 'c';
+  if( !trim($str)  )
+  {
+?>
+</FONT>
+    </TD>
+    <TD BGCOLOR=#9A9ACC>
+    <BR> <BR>
+    </TD>
+</TR>
+<?php
+   $sost = 't'; // end content
+  }
+  else
+  {
+   echo $str;
+  }
+  break;
+ }
+}
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR>?>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'></DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR></FONT>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'>    </TD>
+    <TD BGCOLOR=#9A9ACC>
+    <BR> <BR>
+    </TD>
+</TR>
+</DIV>
+    <DIV CLASS='inewshead'>
+<CENTER><B><FONT COLOR='#6666cd'><BR></TABLE>
+<BR><BR></FONT></B></CENTER></DIV><DIV CLASS='inewsbody'><BR>
+С уважением, <BR>А.Б.В. Иванов
+</DIV>
+    </TD>
+</TR>
+
+</TABLE>
+
+
+
+</body
+></html>
