@@ -30,7 +30,7 @@ outHTML+="
 <CENTER>
 <FONT size=+1><B>Weekly-Quickly</B></FONT>
 <BR>
-<I>( $interval )</I><BR>
+<I>$interval</I><BR>
 </CENTER>
 
 <BR>

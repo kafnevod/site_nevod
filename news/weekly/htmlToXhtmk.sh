@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for f in ????/*.html
+for f
 do
   dir=$(dirname $f)
   file=$(basename $f .html)
