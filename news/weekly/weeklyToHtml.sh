@@ -107,4 +107,4 @@ outHTML+="</TABLE>
 </HTML>
 "
 echo $outHTML |
-tidy --output-xhtml true - 2>/dev/null > $outFile
+tidy --output-xhtml true - 2>/dev/null  > $outFile
