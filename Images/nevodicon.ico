@@ -1,0 +1,25 @@
+/*  GIMP icon image format -- S. Kimball, P. Mattis  */
+/*  Image name: nevod  */
+
+
+#define nevod_width 17
+#define nevod_height 16
+static char *nevod_bits [] = 
+{
+  "hhhhgedcccdeghhhh",
+  "hhhecegghggecdghh",
+  "hgddghhdeeddcccgh",
+  "gdehhhecdefeddcdh",
+  "dehhgcecghheehcde",
+  "ghhgcghchhhefgcfd",
+  "hhgcghgchhhdfeegc",
+  "hheehhgdhhhdddghc",
+  "hhcghhgdhhfcdghgd",
+  "hgdhhhfcdcdchhhee",
+  "hgdhhhedghhchhhcg",
+  "hgchhheehhgdhheeh",
+  "hhdehhefhhgdhedhh",
+  "hhgcfhdfhhfdddghh",
+  "hhhgddcegfdcehhhh",
+  "hhhhhgcdddefhhhhh"
+};
