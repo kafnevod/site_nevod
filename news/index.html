@@ -1,0 +1,55 @@
+<HTML>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<HEAD>
+ <TITLE>Новости/News</TITLE>
+ <link REL="icon" HREF="../Images/nevodicon.png" TYPE="image/png">
+  <link REL="stylesheet" TYPE="text/css" HREF="style.css">
+</HEAD>
+<BODY BACKGROUND="../Images/net-bg.jpg">
+<TABLE	WIDTH="780" ALIGN="center"  CELLSPACING="0" CELLPADDING="0" CLASS="main" BORDER='1'
+
+><TR VALIGN="top" ALIGN="center"
+><TD COLSPAN="3"><BR></TD
+></TR
+
+><TR VALIGN="top" ALIGN="center"
+
+><TD WIDTH="200"><!-- 1-й столбец Weekly-quickly -->
+NewsRefs();
+<BR>
+shownews(1,6);
+</TD
+><TD WIDTH="289"><!-- 2-й столбец Веб Обоз -->
+Idea
+<BR>
+<TABLE  WIDTH="90%" class="photo" ALIGN='center'
+><TR ALIGN="center"
+><TD
+><A href="photohtml/index.xhtml"><IMG SRC='images/News.gif' BORDER="0" ALT='Фотоархив'></A
+></TD></TR>
+</TABLE>
+<BR>
+.php/read_Inews.php
+<BR>
+shownews(7,8);
+</TD
+
+><TD WIDTH="289"><!-- 3-й столбец Кол на голове -->
+showimg
+<BR>
+<BR>
+ include ".php/read_knews.php";
+<BR>
+shownews(9,12,true)
+</TD
+
+></TR
+
+><TR VALIGN="top" ALIGN="center"
+><TD COLSPAN="3"><BR></TD
+></TR
+
+></TABLE>
+
+</BODY>
+</HTML>
