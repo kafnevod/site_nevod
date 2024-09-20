@@ -15,32 +15,94 @@
 ><TR VALIGN="top" ALIGN="center"
 
 ><TD WIDTH="200"><!-- 1-й столбец Weekly-quickly -->
-NewsRefs();
+<IMG SRC="images/news.gif" WIDTH='150' HEIGHT='90' ALT="Новости"
+><BR
+><BR
+  ><TABLE  WIDTH="90%" CLASS="newsrefs" ALIGN="center"
+  ><TR ALIGN="center"
+  ><TD NOWRAP="yes"
+  ><DIV CLASS="newsrefs"><DIV CLASS="newsrefshead"><FONT COLOR="#9c99cd"
+  ><B>РАЗНЫЕ НОВОСТИ:</B></FONT></DIV
+  ><!--A HREF="../local/">туземные</A><BR
+  --><!--A HREF="../linux/news/">Linux</A--><BR
+  ><!--A HREF="../local/zvezda/">газета "Звезда"</A><BR
+  ><A HREF="../local/d-02/">газета "Досье-02"</A><BR
+  --><!--A HREF="./new10.html">последняя десятка</A
+  --></DIV
+  ></TD
+  ></TR
+  ></TABLE>
 <BR>
-shownews(1,6);
+<!-- shownews(1,6);-->
 </TD
 ><TD WIDTH="289"><!-- 2-й столбец Веб Обоз -->
-Idea
+  <TABLE  WIDTH="90%" class="ideas" ALIGN='center'
+  ><TR ALIGN="center"
+  ><TD
+  ><IMG SRC="images/idea-n.gif" ALT="Отдельно взятая мысль"
+  ><BR
+  ><DIV CLASS='idea'>
+    <FONT COLOR=#9c99cd>Попробуйте объяснить своему коту смысл слова "работа".</FONT>
+  </DIV
+    ><A HREF="ideas.html">Мысли текущего года</A>
+  </TD></TR
+  ></TABLE>
 <BR>
 <TABLE  WIDTH="90%" class="photo" ALIGN='center'
 ><TR ALIGN="center"
 ><TD
-><A href="photohtml/index.xhtml"><IMG SRC='images/News.gif' BORDER="0" ALT='Фотоархив'></A
+><A href="photohtml/index.html"><IMG SRC='images/News.gif' BORDER="0" ALT='Фотоархив'></A
 ></TD></TR>
 </TABLE>
 <BR>
-.php/read_Inews.php
+<!-- .php/read_Inews.php -->
+<TABLE BORDER=0 ALIGN='center'>
+<TR>
+    <TD>
+<CENTER>
+<A HREF='weblyhtml/index.html'>
+<IMG SRC="images/Oboz.gif" WIDTH="150" HEIGHT="38" BORDER="0" ALT="веб-обоз" />
+</A>
+</CENTER>
 <BR>
-shownews(7,8);
+<!-- shownews(9,12,true)-->
+</TD
+
+></TR
+
+><TR VALIGN="top" ALIGN="center"
+><TD COLSPAN="3"><BR></TD
+></TR
+
+></TABLE>
+
+<BR>
+<!-- shownews(7,8);-->
 </TD
 
 ><TD WIDTH="289"><!-- 3-й столбец Кол на голове -->
-showimg
+<!-- showimg-->
+ <!-- include ".php/read_knews.php"; -->
+ <TABLE BORDER=0 ALIGN='center'>
+<TR>
+    <TD>
+      <IMG SRC='./images/empty.gif' WIDTH='150' HEIGHT='110'  />
+      <CENTER
+      ><A HREF='kollyhtml/index.xhtml'
+      ><IMG SRC='./images/Kol.gif' WIDTH='150' HEIGHT='38' BORDER='0' ALT="кол-на-голове"
+      ></A
+      ></CENTER>
+      <CENTER
+      ><BR
+      ><A HREF='weeklyhtml/index.xhtml'
+      ><IMG SRC='./images/weekly.gif' WIDTH='150' HEIGHT='38' BORDER='0' ALT="weekly quickly"
+      ></A
+      ></CENTER>
+    </TD>
+</TR>
+</TABLE>
 <BR>
-<BR>
- include ".php/read_knews.php";
-<BR>
-shownews(9,12,true)
+<!-- shownews(9,12,true)-->
 </TD
 
 ></TR
