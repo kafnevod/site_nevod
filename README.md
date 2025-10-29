@@ -16,12 +16,18 @@ https://codeload.github.com/kafnevod/site_nevod/zip/refs/heads/main</a>
 - не было поддержки полупрозначности и приходилось долго и упорно своди цвета фоновых и основных изображений;
 - html-страницы писались "руками".
 
-
-
 Это были времена смелых эксперементов:
 
 - 100% изображений сайта были созданы без использования Photoshop - с помощью редактора gimp;
 - карта сайта использовала автоматически созданные путем рекурсивного сканирования страниц с помощью редактора gimp скриншоты страниц сайта;
 
-Содержимое сайта находится в подкаталоге root.
+Рабочие страницы сайта:
 
+- [Начальная страница сайта](https://kafnevod.github.io/site_nevod/root/);
+- [Страница компании ТЕРЕМ](https://kafnevod.github.io/site_nevod/root/terem/);
+
+- [Фотоархив](https://kafnevod.github.io/site_nevod/root/news/photohtml/index.html);
+
+- [Пермский WEB-обоз](https://kafnevod.github.io/site_nevod/root/news/weblyhtml/index.html);
+
+- [Кол на голове](https://kafnevod.github.io/site_nevod/root/news/kollyhtml/index.xhtml)
